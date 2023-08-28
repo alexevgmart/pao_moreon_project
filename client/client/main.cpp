@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     QTreeWidget* treeWidget = new QTreeWidget();
     window.setWindowTitle("Client");
     treeWidget->setColumnCount(1);
-    treeWidget->setHeaderLabels({"Result"});
+    treeWidget->setHeaderLabels({"Info from database"});
 
     for (nlohmann::json block : data["blocks"]){
         QTreeWidgetItem* blockItem = new QTreeWidgetItem(treeWidget);
