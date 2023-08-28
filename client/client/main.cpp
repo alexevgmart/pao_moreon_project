@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     QTcpSocket socket;
-    socket.connectToHost("localhost", 1234);
+    socket.connectToHost("localhost", 44444);
 
     if (!socket.waitForConnected()) {
         qWarning() << "Failed to connect to the server:" << socket.errorString();
