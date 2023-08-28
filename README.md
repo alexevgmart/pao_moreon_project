@@ -6,4 +6,4 @@
 ## Описание сервера
 
 ## Описание клиента
-![Image alt](https://github.com/alexevgmart/pao_moreon_project/client/picture.png)
+![Image alt](/client/picture.png)
