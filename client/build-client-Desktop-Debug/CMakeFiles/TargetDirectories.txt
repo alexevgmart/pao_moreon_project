@@ -1,0 +1,9 @@
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/client.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/list_install_components.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/install.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/install/local.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/install/strip.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/client_autogen_timestamp_deps.dir
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/client_autogen.dir
