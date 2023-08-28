@@ -1,0 +1,35 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Qt/Tools/Ninja/ninja.exe cmTC_39411 && [1/2] Building CXX object CMakeFiles/cmTC_39411.dir/src.cxx.obj
+FAILED: CMakeFiles/cmTC_39411.dir/src.cxx.obj 
+C:\Users\Alexander\gcc\bin\g++.exe -DCMAKE_HAVE_LIBC_PTHREAD  -DQT_QML_DEBUG  -std=gnu++17 -o CMakeFiles/cmTC_39411.dir/src.cxx.obj -c C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/CMakeTmp/src.cxx
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/CMakeTmp/src.cxx: In function 'int main()':
+C:/Users/Alexander/Documents/build-client-Desktop-Debug/CMakeFiles/CMakeTmp/src.cxx:15:3: error: 'pthread_atfork' was not declared in this scope; did you mean 'pthread_attr_t'?
+   15 |   pthread_atfork(NULL, NULL, NULL);
+      |   ^~~~~~~~~~~~~~
+      |   pthread_attr_t
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
