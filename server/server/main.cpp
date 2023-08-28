@@ -228,7 +228,7 @@ int main(int argc, char *argv[]){
     insertInfoFromXml();
 
     QTcpServer server;
-    if (!server.listen(QHostAddress::Any, 1234)) {
+    if (!server.listen(QHostAddress::Any, 44444)) {
         qWarning() << "Failed to start the server:" << server.errorString();
         return 1;
     }
