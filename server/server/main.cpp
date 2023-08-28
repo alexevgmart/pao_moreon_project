@@ -116,14 +116,14 @@ void createTablesDb(){
 
     if (db.open()) {
         QSqlQuery query;
-        if (query.exec(queryCreateBlocks)) qDebug() << "blocks fine";
-        else qDebug() << "blocks not fine";
+        if (query.exec(queryCreateBlocks)) qDebug() << "create blocks fine";
+        else qDebug() << "create blocks not fine";
 
-        if (query.exec(queryCreateBoards)) qDebug() << "boards fine";
-        else qDebug() << "boards not fine";
+        if (query.exec(queryCreateBoards)) qDebug() << "create boards fine";
+        else qDebug() << "create boards not fine";
 
-        if (query.exec(queryCreatePorts)) qDebug() << "ports fine";
-        else qDebug() << "ports not fine";
+        if (query.exec(queryCreatePorts)) qDebug() << "create ports fine";
+        else qDebug() << "create ports not fine";
 
         db.close();
     } else qDebug() << "db not open";
@@ -139,14 +139,14 @@ void deleteAllFromDb(){
 
     if (db.open()) {
         QSqlQuery query;
-        if (query.exec(queryDeleteBlocks)) qDebug() << "blocks fine";
-        else qDebug() << "blocks not fine";
+        if (query.exec(queryDeleteBlocks)) qDebug() << "delete blocks fine";
+        else qDebug() << "delete blocks not fine";
 
-        if (query.exec(queryDeleteBoards)) qDebug() << "boards fine";
-        else qDebug() << "boards not fine";
+        if (query.exec(queryDeleteBoards)) qDebug() << "delete boards fine";
+        else qDebug() << "delete boards not fine";
 
-        if (query.exec(queryDeletePorts)) qDebug() << "ports fine";
-        else qDebug() << "ports not fine";
+        if (query.exec(queryDeletePorts)) qDebug() << "delete ports fine";
+        else qDebug() << "delete ports not fine";
 
         db.close();
     } else qDebug() << "db not open";
@@ -204,22 +204,22 @@ nlohmann::json getInfoFromDb(){
     return (nlohmann::json)"error";
 }
 
-void showInfoFromDb(){
-    nlohmann::json dbData = getInfoFromDb();
-    for (nlohmann::json block : dbData["blocks"]){
-        qDebug() << (std::string)block[1];
-        for (nlohmann::json board : dbData["boards"]){
-            if (block[0] == board[0]){
-                qDebug() << "\t" << (std::string)board[2];
-                for (nlohmann::json port : dbData["ports"]){
-                    if (board[1] == port[0]){
-                        qDebug() << "\t\t" << (std::string)port[1];
-                    }
-                }
-            }
-        }
-    }
-}
+// void showInfoFromDb(){
+//     nlohmann::json dbData = getInfoFromDb();
+//     for (nlohmann::json block : dbData["blocks"]){
+//         qDebug() << (std::string)block[1];
+//         for (nlohmann::json board : dbData["boards"]){
+//             if (block[0] == board[0]){
+//                 qDebug() << "\t" << (std::string)board[2];
+//                 for (nlohmann::json port : dbData["ports"]){
+//                     if (board[1] == port[0]){
+//                         qDebug() << "\t\t" << (std::string)port[1];
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 int main(int argc, char *argv[]){
     QCoreApplication app(argc, argv);
@@ -237,7 +237,6 @@ int main(int argc, char *argv[]){
 
     std::string dbInfoString = getInfoFromDb().dump();
     QString dbInfo = QString::fromStdString(dbInfoString);
-    qDebug() << dbInfo;
     QObject::connect(&server, &QTcpServer::newConnection, [&]() {
         QTcpSocket *socket = server.nextPendingConnection();
 
